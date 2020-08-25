@@ -2,11 +2,13 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
+import Header from './components/Header'
 
 function App() {
 	return (
 		<Router>
 			<div className="main">
+				<Header title="Noticias de Argentina" />
 				<Navbar />
 				<h1>App</h1>
 				<Switch>

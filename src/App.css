@@ -8,7 +8,7 @@
 	--primary-bg-color: #231942;
 	--primary-bg-color-disabled: #4f437c;
 	--primary-txt-color: #ffffff;
-	--secondary-bg-color: #3dccc7;
+	--secondary-bg-color: #e44f50;
 	--select-bg-color: #86efea;
 	--secondary-txt-color: #ffffff;
 	--alert-bg-color: #dd3535;
@@ -83,12 +83,6 @@ b {
 	border: 1px solid red;
 }
 
-.header {
-	background-color: var(--primary-bg-color);
-	color: var(--primary-txt-color);
-	width: 100%;
-	padding: 40px 30px;
-}
 /*
 .logo {
 	display: inline-block;
