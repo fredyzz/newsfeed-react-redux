@@ -8,7 +8,7 @@ const Navbar = () => {
 			<ul>
 				<li>
 					<NavLink to="/" exact={true}>
-						Home
+						<img src={require('../images/icon_home.svg')} />
 					</NavLink>
 				</li>
 				<li>
