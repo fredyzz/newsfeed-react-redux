@@ -80,7 +80,9 @@ b {
 	background-color: var(--main-bg-color);
 	display: flexbox;
 	width: 100vw - 4px;
-	border: 2px solid red;
+	height: 100vh;
+	border-left: 2px solid var(--secondary-bg-color);
+	border-right: 2px solid var(--secondary-bg-color);
 }
 
 /*

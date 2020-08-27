@@ -3,6 +3,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-top: 2px solid var(--secondary-bg-color);
 }
 
 .header h1 {
