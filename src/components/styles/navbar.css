@@ -53,7 +53,6 @@
 
 .searchbar {
 	display: flex;
-	width: 90vw;
 	margin: 20px auto;
 	justify-content: space-between;
 	border: 1px solid var(--secondary-bg-color);
@@ -87,7 +86,17 @@
 	cursor: pointer;
 }
 
-@media screen and (min-width: 480px) {
+.searchbar button img {
+	width: 30px;
+	margin-right: 12px;
+	margin-top: -4px;
+}
+
+.searchbar svg * {
+	stroke: red;
+}
+
+@media screen and (min-width: 630px) {
 	nav ul {
 		display: flex;
 	}

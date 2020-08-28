@@ -1,13 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const SearchBar = ({ searchMode, setSearchMode }) => {
-	const handleClick = () => {
+	const [searchKey, setSearchKey] = useState('')
+
+	const disableSearchMode = () => {
 		setSearchMode(!searchMode)
 	}
+
+	const handleInputChange = (e) => {
+		setSearchKey(e.target.value)
+	}
+
+	const handleSearch = () => {
+		if (searchKey) {
+			console.log(searchKey)
+			clearSearch()
+		}
+	}
+
+	const clearSearch = () => setSearchKey('')
+
 	return (
 		<div className="searchbar">
-			<input type="text" placeholder="Ingrese lo que desea buscar" />
-			<button onClick={handleClick}>X</button>
+			<input
+				value={searchKey}
+				type="text"
+				placeholder="¿Que tema quieres buscar?"
+				onChange={handleInputChange}
+				onFocus={clearSearch}
+			/>
+			<button onClick={handleSearch}>
+				<img src={require('../images/icon_search.svg')} alt="search icon" />
+			</button>
+			<button onClick={disableSearchMode}>X</button>
 		</div>
 	)
 }
