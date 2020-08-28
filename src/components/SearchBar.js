@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const SearchBar = ({ searchMode, setSearchMode }) => {
 	const [searchKey, setSearchKey] = useState('')
+	const [loading, setLoading] = useState(false)
 
 	const disableSearchMode = () => {
 		setSearchMode(!searchMode)
@@ -15,6 +16,10 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 		if (searchKey) {
 			console.log(searchKey)
 			clearSearch()
+			setLoading(true)
+			setTimeout(() => {
+				setLoading(false)
+			}, 2000)
 		}
 	}
 
@@ -29,9 +34,18 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 				onChange={handleInputChange}
 				onFocus={clearSearch}
 			/>
-			<button onClick={handleSearch}>
-				<img src={require('../images/icon_search.svg')} alt="search icon" />
-			</button>
+			{!loading ? (
+				<button onClick={handleSearch}>
+					<img src={require('../images/icon_search.svg')} alt="search icon" />
+				</button>
+			) : (
+				<img
+					className="loading_image"
+					src={require('../images/image_loading.gif')}
+					alt="loading image"
+				/>
+			)}
+
 			<button onClick={disableSearchMode}>X</button>
 		</div>
 	)
