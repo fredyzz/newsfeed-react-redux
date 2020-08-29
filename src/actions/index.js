@@ -18,7 +18,6 @@ export const clearRepos = () => ({
 })
 
 export const getRepos = (username) => {
-	console.log('username', username)
 	return (dispatch) => {
 		dispatch(clearRepos())
 

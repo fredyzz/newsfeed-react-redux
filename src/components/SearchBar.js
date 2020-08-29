@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { connect, useSelector } from 'react-redux'
-import { getRepos, clearRepos } from '../actions'
+import { useSelector, useDispatch } from 'react-redux'
+import { getRepos } from '../actions'
 
-const SearchBar = ({ onGet, searchMode, setSearchMode, isSearching }) => {
+const SearchBar = ({ searchMode, setSearchMode }) => {
+	const dispatch = useDispatch()
+	const isSearching = useSelector((state) => state.loadingInProgress)
 	const [searchKey, setSearchKey] = useState('')
 
 	const disableSearchMode = () => {
@@ -15,13 +17,8 @@ const SearchBar = ({ onGet, searchMode, setSearchMode, isSearching }) => {
 
 	const handleSearch = () => {
 		if (searchKey) {
-			console.log(searchKey)
 			clearSearch()
-			// setLoading(true)
-			// setTimeout(() => {
-			// 	setLoading(false)
-			// }, 2000)
-			onGet(searchKey)
+			dispatch(getRepos(searchKey))
 		}
 	}
 
@@ -53,15 +50,4 @@ const SearchBar = ({ onGet, searchMode, setSearchMode, isSearching }) => {
 	)
 }
 
-const mapStateToProps = (state, ownProps) => ({
-	searchMode: ownProps.searchMode,
-	setSearchMode: ownProps.setSearchMode,
-	isSearching: state.loadingInProgress
-})
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-	onGet: (input) => dispatch(getRepos(input)),
-	onClear: () => dispatch(clearRepos())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
+export default SearchBar
