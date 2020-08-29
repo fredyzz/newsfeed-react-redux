@@ -9,20 +9,40 @@ const loadingError = (state = false, action) => {
 	}
 }
 
-const loadingInProgress = (state = false, action) => {
+// const loadingInProgress = (state = false, action) => {
+// 	switch (action.type) {
+// 		case 'LOADING_IN_PROGRESS':
+// 			return action.isLoading
+// 		default:
+// 			return state
+// 	}
+// }
+
+// const repos = (state = [], action) => {
+// 	switch (action.type) {
+// 		case 'LOADING_SUCCESS':
+// 			return action.repos
+// 		case 'CLEAR_REPOS':
+// 			return []
+// 		default:
+// 			return state
+// 	}
+// }
+
+const loadingNewsInProgress = (state = false, action) => {
 	switch (action.type) {
-		case 'LOADING_IN_PROGRESS':
+		case 'LOADING_NEWS_IN_PROGRESS':
 			return action.isLoading
 		default:
 			return state
 	}
 }
 
-const repos = (state = [], action) => {
+const news = (state = [], action) => {
 	switch (action.type) {
-		case 'LOADING_SUCCESS':
-			return action.repos
-		case 'CLEAR_REPOS':
+		case 'LOADING_NEWS_SUCCESS':
+			return action.news
+		case 'CLEAR_NEWS':
 			return []
 		default:
 			return state
@@ -30,7 +50,9 @@ const repos = (state = [], action) => {
 }
 
 export default combineReducers({
-	repos,
+	news,
 	loadingError,
-	loadingInProgress
+	loadingNewsInProgress
+	// loadingInProgress,
+	// repos,
 })

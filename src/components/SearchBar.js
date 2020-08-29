@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getRepos } from '../actions'
+import { getNewsByKey } from '../actions'
 
 const SearchBar = ({ searchMode, setSearchMode }) => {
 	const dispatch = useDispatch()
-	const isSearching = useSelector((state) => state.loadingInProgress)
+	const isSearching = useSelector((state) => state.loadingNewsInProgress)
 	const [searchKey, setSearchKey] = useState('')
 
 	const disableSearchMode = () => {
@@ -18,7 +18,7 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 	const handleSearch = () => {
 		if (searchKey) {
 			clearSearch()
-			dispatch(getRepos(searchKey))
+			dispatch(getNewsByKey(searchKey))
 		}
 	}
 

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
 import Header from './components/Header'
+import Home from './containers/Home'
 
 function App() {
 	return (
@@ -10,7 +11,6 @@ function App() {
 			<div className="main">
 				<Header title="Noticias de Argentina" />
 				<Navbar />
-				<h1>App</h1>
 				<Switch>
 					<Route path="/negocios">
 						<h2>Negocios</h2>
@@ -28,7 +28,7 @@ function App() {
 						<h2>Deportes</h2>
 					</Route>
 					<Route path="/">
-						<h2>Home</h2>
+						<Home />
 					</Route>
 				</Switch>
 			</div>
