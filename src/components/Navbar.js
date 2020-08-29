@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom'
 import './styles/navbar.css'
 import SearchButton from './SearchButton'
 import SearchBar from './SearchBar'
+// import { connect, useSelector } from 'react-redux'
+// import { getRepos, clearRepos } from '../actions'
 
-const Navbar = () => {
+const Navbar = ({ onGet }) => {
 	const [searchMode, setSearchMode] = useState(false)
 	return (
 		<nav className="navbar">
@@ -44,5 +46,16 @@ const Navbar = () => {
 		</nav>
 	)
 }
+
+// const mapStateToProps = (state, ownProps) => ({
+// 	defaultUser: ownProps.user
+// })
+
+// const mapDispatchToProps = (dispatch, ownProps) => ({
+// 	onGet: (input) => dispatch(getRepos(input)),
+// 	onClear: () => dispatch(clearRepos())
+// })
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
 
 export default Navbar

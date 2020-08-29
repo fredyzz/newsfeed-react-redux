@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { connect, useSelector } from 'react-redux'
+import { getRepos, clearRepos } from '../actions'
 
-const SearchBar = ({ searchMode, setSearchMode }) => {
+const SearchBar = ({ onGet, searchMode, setSearchMode, isSearching }) => {
 	const [searchKey, setSearchKey] = useState('')
-	const [loading, setLoading] = useState(false)
 
 	const disableSearchMode = () => {
 		setSearchMode(!searchMode)
@@ -16,10 +17,11 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 		if (searchKey) {
 			console.log(searchKey)
 			clearSearch()
-			setLoading(true)
-			setTimeout(() => {
-				setLoading(false)
-			}, 2000)
+			// setLoading(true)
+			// setTimeout(() => {
+			// 	setLoading(false)
+			// }, 2000)
+			onGet(searchKey)
 		}
 	}
 
@@ -34,7 +36,7 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 				onChange={handleInputChange}
 				onFocus={clearSearch}
 			/>
-			{!loading ? (
+			{!isSearching ? (
 				<button onClick={handleSearch}>
 					<img src={require('../images/icon_search.svg')} alt="search icon" />
 				</button>
@@ -42,7 +44,7 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 				<img
 					className="loading_image"
 					src={require('../images/image_loading.gif')}
-					alt="loading image"
+					alt="loading icon"
 				/>
 			)}
 
@@ -51,4 +53,15 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 	)
 }
 
-export default SearchBar
+const mapStateToProps = (state, ownProps) => ({
+	searchMode: ownProps.searchMode,
+	setSearchMode: ownProps.setSearchMode,
+	isSearching: state.loadingInProgress
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+	onGet: (input) => dispatch(getRepos(input)),
+	onClear: () => dispatch(clearRepos())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
