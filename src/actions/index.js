@@ -87,7 +87,7 @@ export const getNewsByKey = (key) => {
 
 		dispatch(loadingNewsInProgress(true))
 
-		fetch(`https://api.canillitapp.com/search/${key}`)
+		fetch(`https://api.canillitapp.com/search/${key.replace(/\s/g, '-')}`)
 			.then((response) => {
 				if (!response.ok) {
 					throw Error(response.statusText)

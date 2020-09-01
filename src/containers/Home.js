@@ -2,6 +2,8 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getNewsByDate } from '../actions'
+import NewsBlock4 from '../components/NewsBlock4'
+import NewsList from '../components/NewsList'
 
 const Home = () => {
 	const dispatch = useDispatch()
@@ -13,11 +15,10 @@ const Home = () => {
 	return (
 		<div>
 			<h1>Home</h1>
-			{newsList.map((news, i) => (
-				<div>
-					<p>{news.title}</p>
-				</div>
-			))}
+			{newsList && <NewsBlock4 newsList={newsList.slice(0, 4)} />}
+
+			<h2>Mas Noticias</h2>
+			<NewsList newsList={newsList.slice(4, 13)} />
 		</div>
 	)
 }

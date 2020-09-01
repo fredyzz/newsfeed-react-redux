@@ -3,23 +3,25 @@ import rootReducer from './reducers'
 import thunk from 'redux-thunk'
 
 // utilidad para ver las acciones realizadas
-const logger = (store) => (next) => (action) => {
-	let result
-	console.groupCollapsed('despachando', action.type)
-	console.log('state previo: ', store.getState())
-	console.log('accion: ', action)
-	result = next(action)
-	console.log('proximo estado: ', store.getState())
-	console.groupEnd()
-	return result
-}
+// const logger = (store) => (next) => (action) => {
+// 	let result
+// 	console.groupCollapsed('despachando', action.type)
+// 	console.log('state previo: ', store.getState())
+// 	console.log('accion: ', action)
+// 	result = next(action)
+// 	console.log('proximo estado: ', store.getState())
+// 	console.groupEnd()
+// 	return result
+// }
 
 const storeFactory = () => {
 	const composeEnhancers =
 		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 	const store = createStore(
 		rootReducer,
-		composeEnhancers(applyMiddleware(logger, thunk))
+		// Uncomment to enable logger
+		//composeEnhancers(applyMiddleware(logger, thunk))
+		composeEnhancers(applyMiddleware(thunk))
 	)
 	return store
 }
