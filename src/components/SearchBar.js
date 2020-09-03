@@ -15,7 +15,8 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 		setSearchKey(e.target.value)
 	}
 
-	const handleSearch = () => {
+	const handleSearch = (e) => {
+		e.preventDefault()
 		if (searchKey) {
 			clearSearch()
 			dispatch(getNewsByKey(searchKey))
@@ -25,7 +26,7 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 	const clearSearch = () => setSearchKey('')
 
 	return (
-		<div className="searchbar">
+		<form className="searchbar" onSubmit={handleSearch}>
 			<input
 				value={searchKey}
 				type="text"
@@ -34,7 +35,7 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 				onFocus={clearSearch}
 			/>
 			{!isSearching ? (
-				<button onClick={handleSearch}>
+				<button tipe="submit">
 					<img src={require('../images/icon_search.svg')} alt="search icon" />
 				</button>
 			) : (
@@ -46,7 +47,7 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 			)}
 
 			<button onClick={disableSearchMode}>X</button>
-		</div>
+		</form>
 	)
 }
 
