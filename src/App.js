@@ -4,6 +4,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Header from './components/Header'
 import Home from './containers/Home'
+import Footer from './components/Footer'
 
 function App() {
 	return (
@@ -31,6 +32,7 @@ function App() {
 						<Home />
 					</Route>
 				</Switch>
+				<Footer />
 			</div>
 		</Router>
 	)

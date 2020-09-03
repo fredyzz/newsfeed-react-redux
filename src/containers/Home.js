@@ -14,10 +14,10 @@ const Home = () => {
 	}, [dispatch])
 	return (
 		<div className="container">
-			{newsList && <NewsBlocks newsList={newsList.slice(0, 12)} />}
-
-			<h2>Mas Noticias</h2>
-			<NewsList newsList={newsList.slice(13, 24)} />
+			{newsList && (
+				<NewsBlocks newsList={newsList.slice(0, 12)} title="ultimas noticias" />
+			)}
+			<NewsList newsList={newsList.slice(12, 24)} title="Mas noticias" />
 		</div>
 	)
 }

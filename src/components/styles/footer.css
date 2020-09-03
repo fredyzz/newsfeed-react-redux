@@ -1,0 +1,19 @@
+.footer {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	background: var(--secondary-bg-color);
+	padding: 20px;
+}
+
+.footer h4 {
+	margin: 0;
+	font-size: 30px;
+	text-transform: uppercase;
+	color: var(--secondary-txt-color);
+}
+
+.footer p {
+	display: block;
+}

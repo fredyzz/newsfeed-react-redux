@@ -1,12 +1,12 @@
-.newsblocks {
+.newslist {
 	width: 100%;
+	padding: 10px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
 	margin-bottom: 20px;
 }
 
-.newsblocks h2 {
+.newslist h2 {
 	width: calc(100% - 40px);
 	margin-left: 0;
 	/* background: var(--secondary-bg-color); */
@@ -19,23 +19,21 @@
 	border-bottom: 3px double var(--secondary-bg-color);
 }
 
-.newsblock {
-	width: 40%;
-	margin-bottom: 20px;
+.newslist_item {
+	width: 90%;
+	height: 100px;
+	margin: 20px auto;
 	text-align: center;
 	overflow: hidden;
 	display: flex;
-	flex-direction: column;
 	justify-content: space-between;
-	box-shadow: 2px 2px 3px 0px rgba(214, 211, 214, 1);
+	padding-bottom: 20px;
+	border-bottom: 1px solid var(--secondary-bg-color);
 }
-.newsblock h4 {
-	margin-top: 0;
-	padding: 0.5em;
-}
-.newsblock img {
-	width: 100%;
-	max-height: 200px;
+
+.newslist_item img {
+	width: 30%;
+	height: 100px;
 	background: linear-gradient(
 		to right,
 		var(--secondary-bg-color) 0%,
@@ -43,16 +41,15 @@
 	);
 }
 
-.newsblock a {
+.newslist_item a {
 	padding: 5px 0.5em 5px 0.5em;
 	text-decoration: none;
-	background: var(--secondary-bg-color);
-	color: var(--primary-txt-color);
+	color: var(--secondary-bg-color);
 }
 
 @media screen and (min-width: 630px) {
-	.newsblock {
-		width: 28vw;
-		max-width: 250px;
+	.newslist_item {
+		width: calc(50% - 40px);
+		margin: 20px;
 	}
 }

@@ -2,9 +2,10 @@ import React from 'react'
 import './styles/newsblocks.css'
 
 const PLACEHOLDER_URL = require('../images/placeholder_news.svg')
-const NewsBlocks = ({ newsList }) => {
+const NewsBlocks = ({ newsList, title }) => {
 	return (
 		<div className="newsblocks">
+			{title && <h2>{title}</h2>}
 			{newsList.map((news) => {
 				return (
 					<div key={news.news_id} className="newsblock">
