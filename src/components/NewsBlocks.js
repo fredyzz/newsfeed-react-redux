@@ -17,6 +17,7 @@ const NewsBlocks = ({ newsList, title }) => {
 						<a
 							href={news.url}
 							target="_blank"
+							rel="noopener noreferrer"
 						>{`Ver mas en ${news.source_name}`}</a>
 					</div>
 				)
