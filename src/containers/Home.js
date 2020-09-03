@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getNewsByDate } from '../actions'
-import NewsBlock4 from '../components/NewsBlock4'
+import NewsBlocks from '../components/NewsBlocks'
 import NewsList from '../components/NewsList'
 
 const Home = () => {
@@ -13,12 +13,11 @@ const Home = () => {
 		dispatch(getNewsByDate('2020-04-29'))
 	}, [dispatch])
 	return (
-		<div>
-			<h1>Home</h1>
-			{newsList && <NewsBlock4 newsList={newsList.slice(0, 4)} />}
+		<div className="container">
+			{newsList && <NewsBlocks newsList={newsList.slice(0, 12)} />}
 
 			<h2>Mas Noticias</h2>
-			<NewsList newsList={newsList.slice(4, 13)} />
+			<NewsList newsList={newsList.slice(13, 24)} />
 		</div>
 	)
 }
