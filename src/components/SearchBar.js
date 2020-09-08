@@ -4,7 +4,7 @@ import { getNewsByKey } from '../actions'
 
 const SearchBar = ({ searchMode, setSearchMode }) => {
 	const dispatch = useDispatch()
-	const isSearching = useSelector((state) => state.loadingNewsInProgress)
+	const isSearching = useSelector((state) => state.searchInProgress)
 	const [searchKey, setSearchKey] = useState('')
 
 	const disableSearchMode = () => {

@@ -12,6 +12,7 @@ const NewsBlocks = ({ newsList, title }) => {
 						<img
 							src={news.img_url ? news.img_url : PLACEHOLDER_URL}
 							alt={news.title}
+							loading="lazy"
 						/>
 						<h4>{news.title}</h4>
 						<a

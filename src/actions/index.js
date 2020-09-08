@@ -3,44 +3,6 @@ export const loadingError = (bool) => ({
 	hasErrored: bool
 })
 
-// export const loadingInProgress = (bool) => ({
-// 	type: 'LOADING_IN_PROGRESS',
-// 	isLoading: bool
-// })
-
-// export const loadingSuccess = (repos) => ({
-// 	type: 'LOADING_SUCCESS',
-// 	repos
-// })
-
-// export const clearRepos = () => ({
-// 	type: 'CLEAR_REPOS'
-// })
-
-// export const getRepos = (username) => {
-// 	return (dispatch) => {
-// 		dispatch(clearRepos())
-
-// 		dispatch(loadingError(false))
-
-// 		dispatch(loadingInProgress(true))
-
-// 		fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
-// 			.then((response) => {
-// 				if (!response.ok) {
-// 					throw Error(response.statusText)
-// 				}
-
-// 				dispatch(loadingInProgress(false))
-
-// 				return response
-// 			})
-// 			.then((response) => response.json())
-// 			.then((repos) => dispatch(loadingSuccess(repos)))
-// 			.catch(() => dispatch(loadingError(true)))
-// 	}
-// }
-
 export const clearNews = () => ({
 	type: 'CLEAR_NEWS'
 })
@@ -50,13 +12,31 @@ export const loadingNewsInProgress = (bool) => ({
 	isLoading: bool
 })
 
-export const loadingNewsSuccess = (news) => ({
+export const loadingNewsSuccess = ({ news, date = '' }) => ({
 	type: 'LOADING_NEWS_SUCCESS',
+	date,
 	news
+})
+
+export const searchNews = ({ news, date = '', key = '' }) => ({
+	type: 'SEARCH_NEWS',
+	date,
+	key,
+	news
+})
+
+export const clearSearch = () => ({
+	type: 'CLEAR_SEARCH'
+})
+
+export const searchInProgress = (bool) => ({
+	type: 'SEARCH_IN_PROGRESS',
+	isLoading: bool
 })
 
 export const getNewsByDate = (date) => {
 	return (dispatch) => {
+		dispatch(clearSearch())
 		dispatch(clearNews())
 
 		dispatch(loadingError(false))
@@ -69,23 +49,22 @@ export const getNewsByDate = (date) => {
 					throw Error(response.statusText)
 				}
 
-				dispatch(loadingNewsInProgress(false))
-
 				return response
 			})
 			.then((response) => response.json())
-			.then((news) => dispatch(loadingNewsSuccess(news)))
+			.then((news) => dispatch(loadingNewsSuccess({ news, date })))
+			.then(() => dispatch(loadingNewsInProgress(false)))
 			.catch(() => dispatch(loadingError(true)))
 	}
 }
 
 export const getNewsByKey = (key) => {
 	return (dispatch) => {
-		dispatch(clearNews())
+		dispatch(clearSearch())
 
 		dispatch(loadingError(false))
 
-		dispatch(loadingNewsInProgress(true))
+		dispatch(searchInProgress(true))
 
 		fetch(`https://api.canillitapp.com/search/${key.replace(/\s/g, '-')}`)
 			.then((response) => {
@@ -93,12 +72,11 @@ export const getNewsByKey = (key) => {
 					throw Error(response.statusText)
 				}
 
-				dispatch(loadingNewsInProgress(false))
-
 				return response
 			})
 			.then((response) => response.json())
-			.then((news) => dispatch(loadingNewsSuccess(news)))
+			.then((news) => dispatch(searchNews({ news, key })))
+			.then(() => dispatch(searchInProgress(false)))
 			.catch(() => dispatch(loadingError(true)))
 	}
 }

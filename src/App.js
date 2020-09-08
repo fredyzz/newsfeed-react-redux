@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
 import Header from './components/Header'
-import Home from './containers/Home'
+import NewsContainer from './containers/NewsContainer'
 import Footer from './components/Footer'
+import Home from './components/pages/Home'
 
 function App() {
 	return (
@@ -29,7 +30,7 @@ function App() {
 						<h2>Deportes</h2>
 					</Route>
 					<Route path="/">
-						<Home />
+						<NewsContainer ChildComponent={Home} />
 					</Route>
 				</Switch>
 				<Footer />

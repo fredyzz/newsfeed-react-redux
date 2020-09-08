@@ -18,21 +18,43 @@ const loadingNewsInProgress = (state = false, action) => {
 	}
 }
 
-const news = (state = [], action) => {
+const loadingNewsSuccess = (state = { news: [], date: '' }, action) => {
 	switch (action.type) {
 		case 'LOADING_NEWS_SUCCESS':
-			return action.news
+			return { date: action.date, news: action.news }
 		case 'CLEAR_NEWS':
-			return []
+			return { news: [], date: '' }
+		default:
+			return state
+	}
+}
+
+const searchNews = (state = { news: [], key: '', date: '' }, action) => {
+	switch (action.type) {
+		case 'SEARCH_NEWS':
+			return { key: action.key, date: action.date, news: action.news }
+		case 'CLEAR_SEARCH':
+			return { news: [], key: '', date: '' }
+		default:
+			return state
+	}
+}
+
+const searchInProgress = (state = false, action) => {
+	switch (action.type) {
+		case 'SEARCH_IN_PROGRESS':
+			return action.isLoading
 		default:
 			return state
 	}
 }
 
 export default combineReducers({
-	news,
+	loadingNewsSuccess,
 	loadingError,
-	loadingNewsInProgress
+	loadingNewsInProgress,
+	searchNews,
+	searchInProgress
 	// loadingInProgress,
 	// repos,
 })
