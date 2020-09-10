@@ -30,7 +30,7 @@ function App() {
 						<h2>Deportes</h2>
 					</Route>
 					<Route path="/">
-						<NewsContainer ChildComponent={Home} />
+						<NewsContainer ChildComponent={Home} mainPage={true} />
 					</Route>
 				</Switch>
 				<Footer />

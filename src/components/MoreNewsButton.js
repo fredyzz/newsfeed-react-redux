@@ -1,11 +1,10 @@
 import React from 'react'
 import './styles/moreNewsButton.css'
 
-const MoreNewsButton = ({ visibleNews, setVisibleNews, steps }) => {
+const MoreNewsButton = ({ showMoreNews }) => {
 	const handleClick = () => {
-		setVisibleNews(visibleNews + steps)
+		showMoreNews()
 	}
-
 	return (
 		<div className="morenewsbutton">
 			<div className="box-1">
