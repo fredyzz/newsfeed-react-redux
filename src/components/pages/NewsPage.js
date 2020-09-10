@@ -4,7 +4,7 @@ import NewsBlocks from '../NewsBlocks'
 import NewsList from '../NewsList'
 import MoreNewsButton from '../MoreNewsButton'
 
-const Home = ({
+const NewsPage = ({
 	isLoading,
 	searchNewsList,
 	newsList,
@@ -37,4 +37,4 @@ const Home = ({
 	</div>
 )
 
-export default Home
+export default NewsPage

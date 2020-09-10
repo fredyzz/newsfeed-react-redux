@@ -3,9 +3,18 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
 import Header from './components/Header'
-import NewsContainer from './containers/NewsContainer'
 import Footer from './components/Footer'
-import Home from './components/pages/Home'
+import NewsContainer from './containers/NewsContainer'
+import NewsPage from './components/pages/NewsPage'
+
+const ROUTES_INFORMATION = [
+	{ path: '/negocios', title: 'negocios' },
+	{ path: '/interes-general', title: 'interés general' },
+	{ path: '/tecnologia', title: 'tecnología' },
+	{ path: '/economia', title: 'economía' },
+	{ path: '/deportes', title: 'deportes' },
+	{ path: '/', mainPage: true }
+]
 
 function App() {
 	return (
@@ -14,24 +23,15 @@ function App() {
 				<Header title="Noticias de Argentina" />
 				<Navbar />
 				<Switch>
-					<Route path="/negocios">
-						<h2>Negocios</h2>
-					</Route>
-					<Route path="/interes-general">
-						<h2>Interes general</h2>
-					</Route>
-					<Route path="/tecnologia">
-						<h2>Tecnología</h2>
-					</Route>
-					<Route path="/economia">
-						<h2>Economia</h2>
-					</Route>
-					<Route path="/deportes">
-						<h2>Deportes</h2>
-					</Route>
-					<Route path="/">
-						<NewsContainer ChildComponent={Home} mainPage={true} />
-					</Route>
+					{ROUTES_INFORMATION.map((route) => (
+						<Route path={route.path} key={route.path}>
+							<NewsContainer
+								ChildComponent={NewsPage}
+								title={route.title}
+								mainPage={route.mainPage ? route.mainPage : false}
+							/>
+						</Route>
+					))}
 				</Switch>
 				<Footer />
 			</div>
