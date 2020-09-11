@@ -31,7 +31,10 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 	}
 
 	return (
-		<form className="searchbar" onSubmit={handleSearch}>
+		<form
+			className={searchMode ? 'searchbar active' : 'searchbar disabled'}
+			onSubmit={handleSearch}
+		>
 			{searchResult ? (
 				<div className="search_result">
 					<input

@@ -9,14 +9,13 @@
 .newsblocks h2 {
 	width: calc(100% - 40px);
 	margin-left: 0;
-	/* background: var(--secondary-bg-color); */
-	color: var(--secondary-bg-color);
+	background: var(--primary-bg-color);
+	color: var(--primary-txt-color);
 	margin-top: 0;
 	margin-bottom: 15px;
-	padding: 0.5em;
+	padding: 0.8em 0.5em;
 	text-transform: uppercase;
-	border-top: 3px double var(--secondary-bg-color);
-	border-bottom: 3px double var(--secondary-bg-color);
+	border-radius: 4px;
 }
 
 .newsblock {
@@ -27,7 +26,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	box-shadow: 2px 2px 3px 0px rgba(214, 211, 214, 1);
+	border-radius: 10px;
+	box-shadow: 10px 10px 12px 0px rgba(230, 230, 230, 1);
 }
 .newsblock h4 {
 	margin-top: 0;
@@ -38,7 +38,7 @@
 	max-height: 200px;
 	background: linear-gradient(
 		to right,
-		var(--secondary-bg-color) 0%,
+		var(--primary-bg-color) 0%,
 		#f6f6f6 100%
 	);
 }
@@ -46,7 +46,7 @@
 .newsblock a {
 	padding: 5px 0.5em 5px 0.5em;
 	text-decoration: none;
-	background: var(--secondary-bg-color);
+	background: var(--primary-bg-color);
 	color: var(--primary-txt-color);
 }
 

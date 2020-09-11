@@ -1,3 +1,5 @@
+export const TITLE = 'Buenos Aires News'
+
 export const ROUTES_INFORMATION = [
 	{ path: '/', mainPage: true },
 	{ path: '/politica', title: 'política', endpoint: 1 },

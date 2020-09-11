@@ -36,9 +36,8 @@ const Navbar = () => {
 					/>
 				</li>
 			</ul>
-			{searchMode && (
-				<SearchBar searchMode={searchMode} setSearchMode={setSearchMode} />
-			)}
+
+			<SearchBar searchMode={searchMode} setSearchMode={setSearchMode} />
 		</nav>
 	)
 }

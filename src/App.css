@@ -5,8 +5,7 @@
 
 :root {
 	--main-bg-color: #ffffff;
-	--primary-bg-color: #231942;
-	--primary-bg-color-disabled: #4f437c;
+	--primary-bg-color: #4f437c;
 	--primary-txt-color: #ffffff;
 	--secondary-bg-color: #e44f50;
 	--select-bg-color: #86efea;
@@ -81,8 +80,8 @@ b {
 	display: flexbox;
 	width: 100vw - 6px;
 	height: 100%;
-	border-left: 3px solid var(--secondary-bg-color);
-	border-right: 3px solid var(--secondary-bg-color);
+	border-left: 3px solid var(--primary-bg-color);
+	border-right: 3px solid var(--primary-bg-color);
 }
 
 .container {

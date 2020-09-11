@@ -9,12 +9,13 @@ import NewsPage from './components/pages/NewsPage'
 import Error from './components/Error'
 // Import constants
 import { ROUTES_INFORMATION } from './utils/variables'
+import { TITLE } from './utils/variables'
 
 function App() {
 	return (
 		<Router>
 			<div className="main">
-				<Header title="Noticias de Argentina" />
+				<Header title={TITLE} />
 				<Navbar />
 				<Switch>
 					{ROUTES_INFORMATION.map((route) => (

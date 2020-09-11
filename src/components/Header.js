@@ -6,9 +6,8 @@ const Header = ({ title }) => {
 	return (
 		<div className="header">
 			<Link to="/">
-				<img src={require('../images/logo128.png')} alt="Logo" />
+				<img src={require('../images/logo_news.svg')} alt="Logo" />
 			</Link>
-
 			<h1 className="logo">{title}</h1>
 		</div>
 	)

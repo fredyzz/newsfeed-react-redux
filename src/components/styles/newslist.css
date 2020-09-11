@@ -9,14 +9,13 @@
 .newslist h2 {
 	width: calc(100% - 40px);
 	margin-left: 0;
-	/* background: var(--secondary-bg-color); */
-	color: var(--secondary-bg-color);
+	background: var(--primary-bg-color);
+	color: var(--primary-txt-color);
 	margin-top: 0;
 	margin-bottom: 15px;
 	padding: 0.5em;
 	text-transform: uppercase;
-	border-top: 3px double var(--secondary-bg-color);
-	border-bottom: 3px double var(--secondary-bg-color);
+	border-radius: 4px;
 }
 
 .newslist_item {
@@ -28,7 +27,7 @@
 	display: flex;
 	justify-content: space-between;
 	padding-bottom: 20px;
-	border-bottom: 1px solid var(--secondary-bg-color);
+	border-bottom: 1px solid var(--primary-bg-color);
 }
 
 .newslist_item img {
@@ -36,9 +35,11 @@
 	height: 100px;
 	background: linear-gradient(
 		to right,
-		var(--secondary-bg-color) 0%,
+		var(--primary-bg-color) 0%,
 		#f6f6f6 100%
 	);
+	border-radius: 5px;
+	box-shadow: -3px -3px 10px 6px rgba(230, 230, 230, 1);
 }
 
 .newslist_item a {
