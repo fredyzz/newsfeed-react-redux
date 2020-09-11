@@ -6,15 +6,9 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import NewsContainer from './containers/NewsContainer'
 import NewsPage from './components/pages/NewsPage'
-
-const ROUTES_INFORMATION = [
-	{ path: '/negocios', title: 'negocios' },
-	{ path: '/interes-general', title: 'interés general' },
-	{ path: '/tecnologia', title: 'tecnología' },
-	{ path: '/economia', title: 'economía' },
-	{ path: '/deportes', title: 'deportes' },
-	{ path: '/', mainPage: true }
-]
+import Error from './components/Error'
+// Import constants
+import { ROUTES_INFORMATION } from './utils/variables'
 
 function App() {
 	return (
@@ -24,14 +18,26 @@ function App() {
 				<Navbar />
 				<Switch>
 					{ROUTES_INFORMATION.map((route) => (
-						<Route path={route.path} key={route.path}>
+						<Route
+							path={route.path}
+							key={route.path}
+							exact={route.mainPage ? true : false}
+						>
 							<NewsContainer
 								ChildComponent={NewsPage}
 								title={route.title}
 								mainPage={route.mainPage ? route.mainPage : false}
+								endpoint={route.endpoint ? route.endpoint : null}
 							/>
 						</Route>
 					))}
+					<Route>
+						<Error
+							message="La dirección ingresada no existe"
+							link="/"
+							linkName="home"
+						/>
+					</Route>
 				</Switch>
 				<Footer />
 			</div>

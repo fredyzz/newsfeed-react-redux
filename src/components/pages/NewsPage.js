@@ -3,11 +3,12 @@ import Loader from '../Loader'
 import NewsBlocks from '../NewsBlocks'
 import NewsList from '../NewsList'
 import MoreNewsButton from '../MoreNewsButton'
+import Error from '../Error'
 
 const NewsPage = ({
 	isLoading,
+	hasError,
 	searchNewsList,
-	newsList,
 	mainNews,
 	moreNews,
 	showMoreNews,
@@ -15,7 +16,9 @@ const NewsPage = ({
 	title
 }) => (
 	<div className="container">
-		{isLoading ? (
+		{hasError ? (
+			<Error message="Ocurrió un error, intente nuevamente mas tarde por favor" />
+		) : isLoading ? (
 			<Loader />
 		) : searchNewsList.key ? (
 			<NewsList

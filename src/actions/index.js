@@ -1,3 +1,7 @@
+const BASE_URL = 'https://api.canillitapp.com/'
+const BY_DATE_ENDPOINT = 'latest/'
+const BY_CATEGORY_ENDPOINT = 'news/category/'
+
 export const loadingError = (bool) => ({
 	type: 'LOADING_ERROR',
 	hasErrored: bool
@@ -34,7 +38,42 @@ export const searchInProgress = (bool) => ({
 	isLoading: bool
 })
 
-export const getNewsByDate = (date) => {
+// export const getNewsByDate = (date) => {
+// 	return (dispatch) => {
+// 		dispatch(clearSearch())
+// 		dispatch(clearNews())
+
+// 		dispatch(loadingError(false))
+
+// 		dispatch(loadingNewsInProgress(true))
+
+// 		fetch(BASE_URL + BY_DATE_ENDPOINT + date)
+// 			.then((response) => {
+// 				if (!response.ok) {
+// 					throw Error(response.statusText)
+// 				}
+
+// 				return response
+// 			})
+// 			.then((response) => response.json())
+// 			.then((news) => dispatch(loadingNewsSuccess({ news, date })))
+// 			.then(() => dispatch(loadingNewsInProgress(false)))
+// 			.catch(() => dispatch(loadingError(true)))
+// 	}
+// }
+
+export const getNewsBy = ({ type, date = '', category = '' }) => {
+	let endPoint = ''
+	let resource = ''
+	if (type === 'date') {
+		endPoint = BY_DATE_ENDPOINT
+		resource = date
+	}
+	if (type === 'category') {
+		endPoint = BY_CATEGORY_ENDPOINT
+		resource = category
+	}
+
 	return (dispatch) => {
 		dispatch(clearSearch())
 		dispatch(clearNews())
@@ -43,7 +82,7 @@ export const getNewsByDate = (date) => {
 
 		dispatch(loadingNewsInProgress(true))
 
-		fetch(`https://api.canillitapp.com/latest/${date}`)
+		fetch(BASE_URL + endPoint + resource)
 			.then((response) => {
 				if (!response.ok) {
 					throw Error(response.statusText)

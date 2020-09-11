@@ -1,0 +1,36 @@
+.error {
+	display: flex;
+	justify-content: center;
+}
+
+.error img {
+	margin-top: 20px;
+	width: 400px;
+}
+
+.error_data {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.error_data a {
+	display: block;
+}
+
+.error_data h2,
+.error_data a {
+	font-size: 18px;
+	margin: 10px 10px;
+}
+
+.error_data a {
+	text-decoration: none;
+	color: var(--secondary-bg-color);
+}
+
+@media screen and (min-width: 630px) {
+	.error img {
+		margin-top: 50px;
+		width: 200px;
+	}
+}
