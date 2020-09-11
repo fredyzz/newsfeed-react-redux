@@ -62,6 +62,10 @@ export const searchInProgress = (bool) => ({
 // 	}
 // }
 
+export const clearSearchResult = () => {
+	return (dispatch) => dispatch(clearSearch())
+}
+
 export const getNewsBy = ({ type, date = '', category = '' }) => {
 	let endPoint = ''
 	let resource = ''

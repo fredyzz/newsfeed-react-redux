@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getNewsByKey } from '../actions'
+import { getNewsByKey, clearSearchResult } from '../actions'
 
 const SearchBar = ({ searchMode, setSearchMode }) => {
 	const dispatch = useDispatch()
 	const isSearching = useSelector((state) => state.searchInProgress)
+	const searchResult = useSelector((state) => state.searchNews.key)
 	const [searchKey, setSearchKey] = useState('')
 
 	const disableSearchMode = () => {
@@ -25,17 +26,38 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 
 	const clearSearch = () => setSearchKey('')
 
+	const cleanResults = () => {
+		dispatch(clearSearchResult())
+	}
+
 	return (
 		<form className="searchbar" onSubmit={handleSearch}>
-			<input
-				value={searchKey}
-				type="text"
-				placeholder="¿Que tema quieres buscar?"
-				onChange={handleInputChange}
-				onFocus={clearSearch}
-			/>
+			{searchResult ? (
+				<div className="search_result">
+					<input
+						value={searchResult}
+						type="text"
+						onClick={cleanResults}
+						onChange={cleanResults}
+					/>
+					<img
+						src={require('../images/icon_cross.svg')}
+						alt="icon cross"
+						onClick={cleanResults}
+					/>
+				</div>
+			) : (
+				<input
+					value={searchKey}
+					type="text"
+					placeholder="¿Que tema quieres buscar?"
+					onChange={handleInputChange}
+					onFocus={clearSearch}
+				/>
+			)}
+
 			{!isSearching ? (
-				<button tipe="submit">
+				<button tipe="submit" disabled={searchResult ? true : false}>
 					<img src={require('../images/icon_search.svg')} alt="search icon" />
 				</button>
 			) : (
@@ -46,7 +68,11 @@ const SearchBar = ({ searchMode, setSearchMode }) => {
 				/>
 			)}
 
-			<button onClick={disableSearchMode}>X</button>
+			<img
+				onClick={disableSearchMode}
+				src={require('../images/icon_up.svg')}
+				alt="close icon"
+			/>
 		</form>
 	)
 }
