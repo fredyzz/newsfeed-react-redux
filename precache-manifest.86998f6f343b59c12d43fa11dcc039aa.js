@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "455e6f2450431bdb0114bc6bb49abac8",
+    "revision": "22ffec5988c6583742aa5d387c261569",
     "url": "/newsfeed-react-redux/index.html"
   },
   {
-    "revision": "4d19543b9a824dca5c70",
+    "revision": "d0431b62c0c310648577",
     "url": "/newsfeed-react-redux/static/css/main.24720585.chunk.css"
   },
   {
-    "revision": "9f2bb02b82afefb05045",
-    "url": "/newsfeed-react-redux/static/js/2.632d12bc.chunk.js"
+    "revision": "fb112cd1a278ec3b4e6d",
+    "url": "/newsfeed-react-redux/static/js/2.630f8e12.chunk.js"
   },
   {
     "revision": "bbee919d8888a17953b5bb98359759ba",
-    "url": "/newsfeed-react-redux/static/js/2.632d12bc.chunk.js.LICENSE.txt"
+    "url": "/newsfeed-react-redux/static/js/2.630f8e12.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4d19543b9a824dca5c70",
-    "url": "/newsfeed-react-redux/static/js/main.2892edbb.chunk.js"
+    "revision": "d0431b62c0c310648577",
+    "url": "/newsfeed-react-redux/static/js/main.06813bda.chunk.js"
   },
   {
     "revision": "1ddfb36760ad1ed0f16e",
